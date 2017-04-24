@@ -123,6 +123,8 @@ app.controller('HomeController', ['$scope', function($scope) {
       } else {
             $scope.movies[index].posterindex++;
       }
+
+      };
       
       $scope.timeText= function(minutes)
       {
@@ -131,6 +133,5 @@ app.controller('HomeController', ['$scope', function($scope) {
             return  $scope.hours +'hrs '+$scope.minutes + 'min';  
       }; 
 
-    };
 
 }]);
