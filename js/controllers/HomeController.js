@@ -88,14 +88,54 @@ app.controller('HomeController', ['$scope', function($scope) {
       likes:	812,
       dislikes:	101,
       posterindex: 0
-	}
-	
+	},
+    { 
+      title:      'Interstellar', 
+      iscore:     8.6,
+      rating:     'PG-13',
+      runtime:    169,
+      released:   new Date('2014', '11', '7'),
+      country:    'USA',
+      posters:    ['img/interstellar1.jpeg','img/interstellar2.jpg','img/interstellar3.jpg'],
+      imdb:       'http://www.imdb.com/title/tt0816692/',
+      website:    'http://www.interstellarmovie.net/synopsis.php',
+      likes:      1230,
+      dislikes:   234,
+      posterindex: 0
+      },
+    { 
+      title:      'Fight Club', 
+      iscore:     8.8,
+      rating:     'R',
+      runtime:    139,
+      released:   new Date('1999', '10', '15'),
+      country:    'USA',
+      posters:    ['img/fightclub1.jpg','img/fightclub2.jpg'],
+      imdb:       'http://www.imdb.com/title/tt0137523/',
+      website:    'http://www.foxmovies.com/movies/fight-club',
+      likes:      777,
+      dislikes:   666,
+      posterindex: 0
+      },
+    { 
+      title:      'Edge of Tomorrow', 
+      iscore:     7.9,
+      rating:     'PG-13',
+      runtime:    113,
+      released:   new Date('2014', '06', '06'),
+      country:    'USA',
+      posters:    ['img/edge1.jpg','img/edge2.jpg'],
+      imdb:       'http://www.imdb.com/title/tt1631867/',
+      website:    'http://www.edgeoftomorrowmovie.com/',
+      likes:      938,
+      dislikes:   159,
+      posterindex: 0
+      }
 	
   ];
 	
-	
+      	
 
-	
 	/* ADD VARIABLES FOR STEP 3 HERE */
 	
       $scope.title = "IMDB + Robert's Top 8 Movies";
@@ -105,19 +145,34 @@ app.controller('HomeController', ['$scope', function($scope) {
       $scope.github = "https://github.com/rkonopko/is219s17konopko-p3";
       
 	
-	
-	
-	
-	
-	
 	/* ADD FUNCTIONS FOR STEP 7 HERE */
 		
+	$scope.like = function(index) {
+            $scope.movies[index].likes++;
+      };
+      
+      $scope.dislike = function(index) {
+            $scope.movies[index].dislikes--      
+      };
 	
-	
-	
-	
-	
-	
-	
-	
+      $scope.posterClick = function(index) 
+      {
+      
+      if ($scope.movies[index].posterindex >= $scope.movies[index].posters.length - 1) {
+            $scope.movies[index].posterindex = 0;
+      
+      } else {
+            $scope.movies[index].posterindex++;
+      }
+
+      };
+      
+      $scope.timeText= function(minutes)
+      {
+            $scope.hours = (Math.floor(Math.abs(minutes) / 60));  
+            $scope.minutes = (Math.abs(minutes) % 60);  
+            return  $scope.hours +'hrs '+$scope.minutes + 'min';  
+      }; 
+
+
 }]);
